@@ -18,6 +18,7 @@ include '../Controller/FonctionC.php';
     $Medecin = new Medecin();
     $Medecin = $Utilisateur->getMedecin();
     $fonctionC=new FonctionC();
+    
         if(isset($_POST['Date_Consultation'])  &&
         isset($_POST['Compte_Rendu_Consultation']) ) 
         { 
@@ -96,9 +97,14 @@ include '../Controller/FonctionC.php';
                                     <?php echo $error; ?>
                                         </div>
                                         <div id="erreur"></div>
+                                        <?php
+			if (isset($_GET['id']))
+			{
+				$consultation1 = $fonctionC->getConsulationById($_GET['id']);	
+            
+		       ?>
 
-                                <form action="" name="consultation" id="consultation" method="POST" oncopy="return false" onpaste="return false" oncut="return false"
-                                 > 
+                 <form action="" name="consultation" id="consultation" method="POST" oncopy="return false" onpaste="return false" oncut="return false" > 
                   <table  align="center">
                 
                 <tr>
@@ -110,7 +116,7 @@ include '../Controller/FonctionC.php';
   
                  ?>
                   <td><input type="text" class="controle"  name="Compte_Rendu_Consultation" 
-                  id="Compte_Rendu_Consultation"  required  >  
+                  id="Compte_Rendu_Consultation"  required value = "<?php echo $consultation1->Compte_Rendu_Consultation; ?>" >  
                 
                     </td>
                     <span class="resultat"></span>
@@ -121,7 +127,8 @@ include '../Controller/FonctionC.php';
                 </tr> 
                 <tr>
                
-                  <td><input type="date" class="controle"  name="Date_Consultation" id="Date_Consultation"  required  >  
+                  <td><input type="date" class="controle"  name="Date_Consultation" id="Date_Consultation"  required 
+                  value = "<?php echo $consultation1->Date_Consultation; ?>" >  
                 
                     </td>
                     <span class="resultat"></span>
@@ -141,7 +148,8 @@ include '../Controller/FonctionC.php';
                 </div></td></tr>
                 
                   </table>
-        </form>                   
+        </form>     
+        <?php } ?>              
                                 
                             </div>
                             
@@ -160,8 +168,7 @@ include '../Controller/FonctionC.php';
 <br/>
 <a href="RdvMedecin.php"><i class="icon-calendar"></i> Mes rendez-vous</a>
 <br/>
-<a href="DisplayOrdonnance.php"><i class="icon-list"></i> Liste des ordonnances</a>
-<br/>
+
 <a href="findRDV.php"><i class="icon-search"></i> Rechercher rendez-vous</a>
 <br/>
 <a href="findConsultations.php"><i class="icon-search"></i> Rechercher Consultations</a>

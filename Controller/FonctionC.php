@@ -384,6 +384,57 @@ class FonctionC{
     }
 
 
+    function getConsulationById($id)
+    {
+		$sql="SELECT * from consultation where	Id_Consultation='".$id."'";
+    $util=new Util(); 
+    $util->dbConnection();
+		try{
+			$query=$util->mysqli->query($sql);
+      while($ligne = $query->fetch_assoc()){
+        $_Id = $ligne['Id_Consultation'];
+        
+        if(($id == $_Id))
+        {
+             $consultation = new Consultation();
+             $consultation->setDate_Consultation($ligne['Date_Consultation']) ;
+             $consultation->setCompte_Rendu_Consultation($ligne['Compte_Rendu_Consultation']) ;
+      
+
+             break;
+        }}
+			return $consultation;
+		}
+		catch (Exception $e){
+			die('Erreur: '.$e->getMessage());
+		}
+    }
+
+    function getOrdById($id)
+    {
+		$sql="SELECT * from ordonnance where	Id_Ordonnance='".$id."'";
+    $util=new Util(); 
+    $util->dbConnection();
+		try{
+			$query=$util->mysqli->query($sql);
+      while($ligne = $query->fetch_assoc()){
+        $_Id = $ligne['Id_Ordonnance'];
+        
+        if(($id == $_Id))
+        {
+             $ordonnance = new Ordonnance();
+             $ordonnance->setDate_Ordonnance($ligne['Date_Ordonnance']) ;
+             $ordonnance->setDetail_Medicament($ligne['Detail_Medicament']) ;
+      
+
+             break;
+        }}
+			return $ordonnance;
+		}
+		catch (Exception $e){
+			die('Erreur: '.$e->getMessage());
+		}
+    }
 
 
 

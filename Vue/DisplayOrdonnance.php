@@ -76,7 +76,7 @@ include '../Controller/FonctionC.php';
                         </div>
                         <div class="Left-body">
                             <div class="Left-body-head">
-                                Liste des consultations
+                                Liste des ordonnances
                             </div>
                             <div class="infos">
                                 
@@ -137,8 +137,7 @@ include '../Controller/FonctionC.php';
 <a href="PatientsMed.php"><i class="icon-user"></i> Mes patients</a>
 <br/>
 <a href="RdvMedecin.php"><i class="icon-calendar"></i> Mes rendez-vous</a>
-<br/>
-<a href="DisplayOrdonnance.php"><i class="icon-list"></i> Liste des ordonnances</a>
+
 <br/>
 <a href="findRDV.php"><i class="icon-search"></i> Rechercher rendez-vous</a>
 <br/>

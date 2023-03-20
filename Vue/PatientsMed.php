@@ -65,7 +65,7 @@ include '../Controller/FonctionC.php';
                         </div>
                         <div class="Left-body">
                             <div class="Left-body-head">
-                                Liste des rendez-vous à venir 
+                                Liste des Patients
                             </div>
                             <div class="infos">
                                 
@@ -123,8 +123,7 @@ foreach($liste as $patient)
 <br/>
 <a href="RdvMedecin.php"><i class="icon-calendar"></i> Mes rendez-vous</a>
 <br/>
-<a href="DisplayOrdonnance.php"><i class="icon-list"></i> Liste des ordonnances</a>
-<br/>
+
 <a href="findRDV.php"><i class="icon-search"></i> Rechercher rendez-vous</a>
 <br/>
 <a href="findConsultations.php"><i class="icon-search"></i> Rechercher Consultations</a>
